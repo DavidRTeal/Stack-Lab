@@ -10,7 +10,6 @@ This is a simple assembly language simulator that supports basic commands for pu
 - [File Descriptions](#file-descriptions)
 - [Example Input](#example-input)
 - [Example Output](#example-output)
-- [License](#license)
 
 ## Introduction
 
@@ -32,15 +31,42 @@ To compile and run the simulator, follow these steps:
 
    ```shell
    gcc push_pop.c stack_status.c -o push_pop_simulator
-
+     
 ./push_pop_simulator -i input.txt -o output.txt -b 0x140 -l 0x100 -s 0x130
 
+## Command Line Options
+
+The simulator supports the following command-line options:
+
+- `-i <input_file>`: Specify the input file containing a sequence of commands. If not provided, it reads from standard input (stdin).
+- `-o <output_file>`: Specify the output file where the status and other information will be written. If not provided, it writes to standard output (stdout).
+- `-b <stack_bottom>`: Set the high address of the stack (stack bottom) as a hexadecimal value. Default is `0x140`.
+- `-l <stack_limit>`: Set the low address of the stack (stack limit) as a hexadecimal value. Default is `0x100`.
+- `-s <rsp_value>`: Set the initial value of the `%rsp` register within the stack as a hexadecimal value. Default is `0x130`.
+- `-v`: Enable verbose output for diagnostic information.
+- `-h`: Display help information, including available options.
+
+## File Descriptions
+
+- `push_pop.c`: The main source code file containing the implementation of the simulator.
+- `push_pop.h`: Header file defining constants, function prototypes, and data structures used in the simulator.
+- `stack_status.c`: Source code file containing the implementation of the `stack_status` function, which displays the status of registers and the stack.
+- `README.md`: This README file.
+
+## Example Input
+
+Here is an example of an input file (`input.txt`) with a sequence of commands:
+
+```assembly
 push %rax
 push %rbx
 push $0x123
 pop %rdx
 status
+```
+## Example Output
 
+After running the simulator with the above input, the contents of the output file (output.txt) might look like this:
 
 register_values:
     %rsp:           0x00000130
