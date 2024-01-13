@@ -68,6 +68,7 @@ status
 
 After running the simulator with the above input, the contents of the output file (output.txt) might look like this:
 
+```assembly
 register_values:
     %rsp:           0x00000130
     %rax:           0x00000020
@@ -81,3 +82,4 @@ stack:
                     0x00000138    0x00000030
                     0x00000130    0x00000020
 
+```
