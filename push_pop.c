@@ -71,8 +71,7 @@ main(int argc, char *argv[])
         int opt = 0;
         //int res_count = 0;
 
-        // Do not begin processing input until AFTER you have completely
-        // processed the command line using getopt() .
+
 
         while ((opt = getopt(argc, argv, GETOPT_STRING)) != -1) {
             switch (opt) {
@@ -148,8 +147,6 @@ main(int argc, char *argv[])
             }
         }
     }
-    // Do not begin processing input until AFTER you have completely
-    // processed the command line using the getopt() loop.
 
 
     stack = calloc(((stack_bot - stack_limit)+1), REG_SIZE);
@@ -211,13 +208,6 @@ main(int argc, char *argv[])
     token = NULL;
     stack = NULL;
     
-
-
-    // Do all the validation of upper and lower bounds down here, NOT
-    // within the getopt() loop.
-
-
-    // Have your loop for processing all the input down here.
     
     return EXIT_SUCCESS;
 }
